@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+    <title>RGB</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            background: black;
+            cursor: pointer;
+        }
+        p {
+            position: absolute;
+            color: white;
+            font-family: 'Lato', sans-serif;
+            font-size: 35px;
+            font-weight: bold;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: fadeOut 5s ease-out;
+            opacity: 0
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <p>Click on the screen to generate RGB blobs!</p>
+    <script src="main.js"></script>
+</body>
+</html>
