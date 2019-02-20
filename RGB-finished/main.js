@@ -50,16 +50,15 @@ class Blob {
             beginShape()
                 for (let i = 0; i < TWO_PI; i += radians(1)) {
 
-                    let x = this.offset * cos(i) + this.offset
-                    let y = this.offset * sin(i) + this.offset // add any random number to avoid symmetry, doesn't have to be this.offset, it's just for convenience
+                    let xOff = this.offset * cos(i) + this.offset
+                    let yOff = this.offset * sin(i) + this.offset // add any random number to avoid symmetry, doesn't have to be this.offset, it's just for convenience
 
-                    // let r = radius + map(noise(x, y, this.t), 0, 1, -this.scale, this.scale)
-                    let r = blobCtrl.radius + map(noise(x, y, this.t), 0, 1, -this.scale, this.scale)
+                    let r = blobCtrl.radius + map(noise(xOff, yOff, this.t), 0, 1, -this.scale, this.scale)
                     
-                    let x1 = r * cos(i)
-                    let y1 = r * sin(i)
+                    let x = r * cos(i)
+                    let y = r * sin(i)
 
-                    vertex(x1, y1)
+                    vertex(x, y)
                 }
             endShape()
             this.t += this.tSpeed
