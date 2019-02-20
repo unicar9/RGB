@@ -1,8 +1,30 @@
 
-const radius = 100,
-    blobs = [],
-    colors = ['#ff0000', '#00ff00', '#0000ff'], 
-    positionOffset = 30
+const blobs = [], colors = ['#ff0000', '#00ff00', '#0000ff']
+
+
+class BlobCtrl {
+    constructor() {
+        this.offsetMax = 0.8;
+        this.offsetMin = 0.4;
+        this.positionOffset = 30;
+        this.scaleMax = 100;
+        this.scaleMin = 20;
+        this.speedMax = 0.08;
+        this.speedMin = 0.02;
+        this.radius = 100;
+    }
+}
+
+const blobCtrl = new BlobCtrl()
+const gui = new dat.GUI()
+gui.add(blobCtrl, 'offsetMax', .6, 1)
+gui.add(blobCtrl, 'offsetMin', .1, .4)
+gui.add(blobCtrl, 'positionOffset', 10, 100)
+gui.add(blobCtrl, 'scaleMax', 80, 150)
+gui.add(blobCtrl, 'scaleMin', 10, 50)
+gui.add(blobCtrl, 'speedMax', 0.06, 1)
+gui.add(blobCtrl, 'speedMin', 0.01, 0.04)
+gui.add(blobCtrl, 'radius', 100, 200)
 
 class Blob {
     constructor(offset, scale, x, y, tSpeed, color) {
@@ -29,9 +51,10 @@ class Blob {
                 for (let i = 0; i < TWO_PI; i += radians(1)) {
 
                     let x = this.offset * cos(i) + this.offset
-                    let y = this.offset * sin(i) + this.offset
+                    let y = this.offset * sin(i) + this.offset // add any random number to avoid symmetry, doesn't have to be this.offset, it's just for convenience
 
-                    let r = radius + map(noise(x, y, this.t), 0, 1, -this.scale, this.scale)
+                    // let r = radius + map(noise(x, y, this.t), 0, 1, -this.scale, this.scale)
+                    let r = blobCtrl.radius + map(noise(x, y, this.t), 0, 1, -this.scale, this.scale)
                     
                     let x1 = r * cos(i)
                     let y1 = r * sin(i)
@@ -45,15 +68,16 @@ class Blob {
 }
 
 function generateBlobs(positionX, positionY) {
-    const offset = random(.4, .8)
+    const offset = random(blobCtrl.offsetMax, blobCtrl.offsetMin)
+    
     new Array(3).fill(1).map((_, i) => {
 
-        const scale = random(20, 80)
+        const scale = random(blobCtrl.scaleMin, blobCtrl.scaleMax)
 
-        const x = positionX + random(-positionOffset, positionOffset)
-        const y = positionY + random(-positionOffset, positionOffset)
+        const x = positionX + random(-blobCtrl.positionOffset, blobCtrl.positionOffset)
+        const y = positionY + random(-blobCtrl.positionOffset, blobCtrl.positionOffset)
 
-        const tSpeed = random(.02, .08)
+        const tSpeed = random(blobCtrl.speedMin, blobCtrl.speedMax)
         const color = colors[i % 3]
 
         let blob = new Blob(offset, scale, x, y, tSpeed, color)
@@ -80,7 +104,7 @@ function draw() {
 
 }
 
-function mousePressed() {
+function doubleClicked() {
     generateBlobs(mouseX - width / 2, mouseY - height / 2)
 }
 
