@@ -1,9 +1,8 @@
 # PCD-Shanghai-RGB
 
 ## Intro
----
 
-![RGB](https://i.imgur.com/SbMzW9l.gif "RGB gif")
+![RGB](https://i.imgur.com/SbMzW9l.gif "RGB blobs gif")
 
 This is an interactive demo made with P5.js in which you can click on anywhere on the screen, and watch it generating a group of RGB colored blobs, exhibiting different color effects when they overlap. 
 
@@ -11,3 +10,4 @@ This is an interactive demo made with P5.js in which you can click on anywhere o
 
 [RGB live demo](https://dreamy-ramanujan-877194.netlify.com/rgb-finished/)
 
+## Workshop Slides
