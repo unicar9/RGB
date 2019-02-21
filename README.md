@@ -12,4 +12,4 @@ This is an interactive demo made with P5.js in which you can click on anywhere o
 
 ## Workshop Slides
 
-[Powerpoint slides download](https://pan.baidu.com/s/1jkYGjHAmZLteAMmg085lfg)
+[download](https://pan.baidu.com/s/1jkYGjHAmZLteAMmg085lfg)
