@@ -1,7 +1,6 @@
-const width = window.innerWidth, height = window.innerHeight
 
 function setup() {
-    createCanvas(width, height)
+    createCanvas(windowWidth, windowHeight)
 }
 
 function draw() {

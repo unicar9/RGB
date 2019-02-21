@@ -7,7 +7,7 @@ class BlobCtrl {
         this.offsetMax = 0.8;
         this.offsetMin = 0.4;
         this.positionOffset = 30;
-        this.scaleMax = 100;
+        this.scaleMax = 80;
         this.scaleMin = 20;
         this.speedMax = 0.08;
         this.speedMin = 0.02;
@@ -20,7 +20,7 @@ const gui = new dat.GUI()
 gui.add(blobCtrl, 'offsetMax', .6, 1)
 gui.add(blobCtrl, 'offsetMin', .1, .4)
 gui.add(blobCtrl, 'positionOffset', 10, 100)
-gui.add(blobCtrl, 'scaleMax', 80, 150)
+gui.add(blobCtrl, 'scaleMax', 60, 90)
 gui.add(blobCtrl, 'scaleMin', 10, 50)
 gui.add(blobCtrl, 'speedMax', 0.06, 1)
 gui.add(blobCtrl, 'speedMin', 0.01, 0.04)
@@ -85,9 +85,9 @@ function generateBlobs(positionX, positionY) {
 }
 
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight)
+    createCanvas(windowWidth, windowHeight)
 
-    generateBlobs(100, 100) 
+    generateBlobs(500, 500) 
 }
 
 function draw() {
@@ -95,16 +95,11 @@ function draw() {
     noStroke()
     blendMode(SCREEN)
 
-    translate( width / 2, height / 2 )
-
-    blobs.forEach(blob => {
-        blob.display()      
-    })
-
+    blobs.forEach(blob => blob.display())
 }
 
 function doubleClicked() {
-    generateBlobs(mouseX - width / 2, mouseY - height / 2)
+    generateBlobs(mouseX, mouseY)
 }
 
 function windowResized() {
