@@ -4,14 +4,14 @@ const blobs = [], colors = ['#ff0000', '#00ff00', '#0000ff']
 
 class BlobCtrl {
     constructor() {
-        this.offsetMax = 0.8;
-        this.offsetMin = 0.4;
-        this.positionOffset = 30;
-        this.scaleMax = 80;
-        this.scaleMin = 20;
-        this.speedMax = 0.08;
-        this.speedMin = 0.02;
-        this.radius = 100;
+        this.offsetMax = 0.8
+        this.offsetMin = 0.4
+        this.positionOffset = 30
+        this.scaleMax = 80
+        this.scaleMin = 20
+        this.speedMax = 0.08
+        this.speedMin = 0.02
+        this.radius = 100
     }
 }
 
@@ -24,7 +24,7 @@ gui.add(blobCtrl, 'scaleMax', 60, 90)
 gui.add(blobCtrl, 'scaleMin', 10, 50)
 gui.add(blobCtrl, 'speedMax', 0.06, 1)
 gui.add(blobCtrl, 'speedMin', 0.01, 0.04)
-gui.add(blobCtrl, 'radius', 100, 200)
+gui.add(blobCtrl, 'radius', 50, 150)
 
 class Blob {
     constructor(offset, scale, x, y, tSpeed, color) {
