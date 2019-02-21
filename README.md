@@ -11,3 +11,5 @@ This is an interactive demo made with P5.js in which you can click on anywhere o
 [RGB live demo](https://dreamy-ramanujan-877194.netlify.com/rgb-finished/)
 
 ## Workshop Slides
+
+[Powerpoint slides download](https://pan.baidu.com/s/1jkYGjHAmZLteAMmg085lfg)
